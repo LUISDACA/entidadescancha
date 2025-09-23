@@ -3,25 +3,45 @@ package com.example.uccexample.domain.dto;
 import java.time.LocalDateTime;
 
 public class ReservationDTO {
-    private Long id;
-    private LocalDateTime fechaHoraInicio;
-    private LocalDateTime fechaHoraFin;
-    private Long clienteId;
-    private Long canchaId;
+    
+    private Long idReservation;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
+    private ClientDTO client;
+    private CourtDTO court; 
 
-    // Getters y Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getIdReservation() {
+        return idReservation;
+    }
+    public void setIdReservation(Long idReservation) {
+        this.idReservation = idReservation;
+    }
 
-    public LocalDateTime getFechaHoraInicio() { return fechaHoraInicio; }
-    public void setFechaHoraInicio(LocalDateTime fechaHoraInicio) { this.fechaHoraInicio = fechaHoraInicio; }
+    public LocalDateTime getStartDate() {
+        return startDate;
+    }   
+    public void setStartDate(LocalDateTime startDate) {
+        this.startDate = startDate;
+    }
 
-    public LocalDateTime getFechaHoraFin() { return fechaHoraFin; }
-    public void setFechaHoraFin(LocalDateTime fechaHoraFin) { this.fechaHoraFin = fechaHoraFin; }
+    public LocalDateTime getEndDate() {
+        return endDate;
+    }
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
+    }
 
-    public Long getClienteId() { return clienteId; }
-    public void setClienteId(Long clienteId) { this.clienteId = clienteId; }
+    public ClientDTO getClient() {
+        return client;
+    }
+    public void setClient(ClientDTO client) {
+        this.client = client;
+    }
 
-    public Long getCanchaId() { return canchaId; }
-    public void setCanchaId(Long canchaId) { this.canchaId = canchaId; }
+    public CourtDTO getCourt() {
+        return court;
+    }
+    public void setCourt(CourtDTO court) {
+        this.court = court;
+    }
 }

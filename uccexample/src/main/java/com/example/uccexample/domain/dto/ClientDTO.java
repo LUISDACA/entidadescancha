@@ -1,21 +1,37 @@
 package com.example.uccexample.domain.dto;
 
 public class ClientDTO {
-    private Long id;
-    private String nombre;
-    private String email;
-    private String telefono;
 
-    // Getters y Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    private Long id; // Siempre primero
+    private String name;
+    private String identification; // Mejor como String para no perder dígitos
+    private String phone;          // Igual, String para teléfonos largos
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public String getTelefono() { return telefono; }
-    public void setTelefono(String telefono) { this.telefono = telefono; }
+    public String getIdentification() {
+        return identification;
+    }
+    public void setIdentification(String identification) {
+        this.identification = identification;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 }
