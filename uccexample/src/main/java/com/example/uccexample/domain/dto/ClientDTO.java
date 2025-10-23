@@ -6,6 +6,7 @@ public class ClientDTO {
     private String name;
     private String identification; // Mejor como String para no perder dígitos
     private String phone;          // Igual, String para teléfonos largos
+    private String nationality;    // Nacionalidad del cliente
 
     public Long getId() {
         return id;
@@ -33,5 +34,11 @@ public class ClientDTO {
     }
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+    public String getNationality() {
+        return nationality;
+    }
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
     }
 }

@@ -12,39 +12,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.uccexample.domain.dto.ReservationDTO;
-import com.example.uccexample.infraestructura.repository.ReservaRepository;
+import com.example.uccexample.domain.service.ReservaService;
 
 @RestController
 @RequestMapping("/reservas") // 👈 Ruta base, el context-path añade /ucc/api
 public class ReservaController {
 
     @Autowired
-    private ReservaRepository reservaRepository;
+    private ReservaService reservaService;
 
     // GET -> obtener todas las reservas
     @GetMapping
     public List<ReservationDTO> getAll() {
-        return reservaRepository.getAll();
+        return reservaService.getAll();
     }
 
     // GET -> buscar una reserva por id
     @GetMapping("/{id}")
     public ReservationDTO findById(@PathVariable Long id) {
-        return reservaRepository.findById(id);
+        return reservaService.findById(id);
     }
 
     // POST -> guardar una nueva reserva
     @PostMapping
     public ReservationDTO save(@RequestBody ReservationDTO reservaDto) {
-        return reservaRepository.save(reservaDto);
+        return reservaService.save(reservaDto);
     }
 
     // DELETE -> eliminar una reserva por id
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        ReservationDTO reserva = reservaRepository.findById(id);
+        ReservationDTO reserva = reservaService.findById(id);
         if (reserva != null) {
-            reservaRepository.delete(reserva);
+            reservaService.delete(id);
         }
     }
 }

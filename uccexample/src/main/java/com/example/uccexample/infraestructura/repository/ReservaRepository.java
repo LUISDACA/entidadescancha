@@ -7,12 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.example.uccexample.domain.dto.ReservationDTO;
+import com.example.uccexample.domain.irepository.IReservaRepository;
 import com.example.uccexample.infraestructura.crud.ReservaCrud;
 import com.example.uccexample.infraestructura.mapper.ReservaMapper;
 import com.example.uccexample.infraestructura.model.Reserva;
 
 @Repository
-public class ReservaRepository {
+public class ReservaRepository implements IReservaRepository {
 
     @Autowired
     private ReservaCrud reservaCrud;

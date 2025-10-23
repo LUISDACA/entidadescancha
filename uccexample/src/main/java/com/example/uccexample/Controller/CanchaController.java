@@ -12,39 +12,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.uccexample.domain.dto.CourtDTO;
-import com.example.uccexample.infraestructura.repository.CanchaRepository;
+import com.example.uccexample.domain.service.CanchaService;
 
 @RestController
 @RequestMapping("/canchas") // 👈 Ruta base limpia, el context-path añade /ucc/api
 public class CanchaController {
 
     @Autowired
-    private CanchaRepository canchaRepository;
+    private CanchaService canchaService;
 
     // GET -> obtener todas las canchas
     @GetMapping
     public List<CourtDTO> getAll() {
-        return canchaRepository.getAll();
+        return canchaService.getAll();
     }
 
     // GET -> buscar una cancha por id
     @GetMapping("/{id}")
     public CourtDTO findById(@PathVariable Long id) {
-        return canchaRepository.findById(id);
+        return canchaService.findById(id);
     }
 
     // POST -> guardar una nueva cancha
     @PostMapping
     public CourtDTO save(@RequestBody CourtDTO courtDto) {
-        return canchaRepository.save(courtDto);
+        return canchaService.save(courtDto);
     }
 
     // DELETE -> eliminar una cancha por id
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        CourtDTO court = canchaRepository.findById(id);
+        CourtDTO court = canchaService.findById(id);
         if (court != null) {
-            canchaRepository.delete(court);
+            canchaService.delete(id);
         }
     }
 }
