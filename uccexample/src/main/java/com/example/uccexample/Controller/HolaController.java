@@ -16,7 +16,7 @@ import com.example.uccexample.domain.service.ClienteService;
 
 @RestController
 @RequestMapping("/clientes") // 👈 Ruta base limpia, el context-path añade /ucc/api
-public class Holacontroller {
+public class HolaController {
 
     @Autowired
     private ClienteService clienteService;
