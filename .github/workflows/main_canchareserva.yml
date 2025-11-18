@@ -22,14 +22,14 @@ jobs:
           distribution: 'microsoft'
 
       - name: Build with Maven (skip tests)
-        working-directory: ./uccexample   # 👈 carpeta donde está tu pom.xml
+        working-directory: ./uccexample     # 👈 carpeta donde está tu pom.xml
         run: mvn clean package -DskipTests
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: java-app
-          path: ./uccexample/target/*.jar
+          path: ./uccexample/target/*.jar   # 👈 subimos SOLO el jar
 
   deploy:
     runs-on: ubuntu-latest
@@ -37,13 +37,16 @@ jobs:
     permissions:
       id-token: write
       contents: read
-  
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: java-app
-          path: .
+          path: .                           # 👈 deja el jar en el workspace actual
+
+      - name: List files (debug opcional)
+        run: ls -R                          # 👈 verás aquí el .jar suelto
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -58,4 +61,4 @@ jobs:
         with:
           app-name: 'canchareserva'
           slot-name: 'Production'
-          package: './uccexample/target/*.jar'
+          package: '*.jar'                  # 👈 aquí el cambio importante
